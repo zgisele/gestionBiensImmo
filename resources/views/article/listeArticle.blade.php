@@ -1,16 +1,20 @@
+@extends('layout.userLayout')
+@section('contenueUser')
+
 <div class="row">
-    @foreach($articles as $article)
+    @foreach($article as $articles)
         <div class="col-md-4">
             <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{ $article->image }}" alt="Image du bien">
+                
                 <div class="card-body">
-                    <h5 class="card-title">Nom : {{ $article->nom }}</h5>
-                    <p class="card-text">description : {{ $article->description }}</p>
-                    <p class="card-text">Type : {{ $article->type }}</p>
-                    <p class="card-text">Statut : {{ $article->statut }}</p>
-                    
+                    <h5 class="card-title">Nom : {{ $articles->nom }}</h5>
+                    <p class="card-text">description : {{ $articles->description }}</p>
+                    <p class="card-text">Type : {{ $articles->type }}</p>
+                    <p class="card-text">Statut : {{ $articles->statue }}</p>
+                    <img class="card-img-top" src="{{ $articles->image }}" >
                 </div>
             </div>
         </div>
     @endforeach
 </div>
+@endsection

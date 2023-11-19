@@ -55,7 +55,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        $biens = Article::all(); // Récupérer tous les biens depuis le modèle article
+        $article = Article::all(); // Récupérer tous les biens depuis le modèle article
         return view('article.listeArticle', compact('article')); // Passer les Articles à la vue
     }
 
