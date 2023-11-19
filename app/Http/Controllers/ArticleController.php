@@ -46,7 +46,7 @@ class ArticleController extends Controller
     $article->image = $imagePath;
     $article->save();
 
-    return redirect()->route('article.articles')->with('success', 'Article ajouté avec succès.');
+    return back()->with('status', 'Article ajouté avec succès.');
 }
 
 
@@ -55,7 +55,8 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        $biens = Article::all(); // Récupérer tous les biens depuis le modèle article
+        return view('article.listeArticle', compact('article')); // Passer les Articles à la vue
     }
 
     /**

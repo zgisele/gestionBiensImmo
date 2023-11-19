@@ -13,5 +13,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('article', [ArticleController::class, 'index']);
+Route::get('/article', [ArticleController::class, 'index']);
 Route::post('/article/articles', [ArticleController::class, 'store']);
+Route::get('/article/listeArticle', [ArticleController::class, 'show']);
