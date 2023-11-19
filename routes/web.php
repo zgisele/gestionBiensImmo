@@ -23,14 +23,14 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/articles', [UserController::class, 'articles']);
     Route::get('/commentaires', [UserController::class, 'commentaires']);
     Route::get('/articles/ajouter', [UserController::class, 'ajouter']);
-    Route::delete('deleteUser/{id}', [UserController::class, 'deleteUser']);
+    Route::delete('/deleteUser/{id}', [UserController::class, 'deleteUser']);
 });
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/user/profile', [UserController::class, 'profilUser']);
-    Route::patch('/user/updateProfile/{id}', [UserController::class, 'updateProfile']);
-    Route::patch('/user/updatePasswd/{id}', [UserController::class, 'updatePasswd']);
-    Route::delete('/user/deleteUser/{id}', [UserController::class, 'deleteUser']);
+Route::prefix('user')->middleware(['auth'])->group(function () {
+    Route::get('/profile', [UserController::class, 'profilUser']);
+    Route::patch('/updateProfile/{id}', [UserController::class, 'updateProfile']);
+    Route::patch('/updatePasswd/{id}', [UserController::class, 'updatePasswd']);
+    Route::delete('/deleteUser/{id}', [UserController::class, 'deleteUser']);
 });
 
 Route::get('/', [UserController::class, 'index']);

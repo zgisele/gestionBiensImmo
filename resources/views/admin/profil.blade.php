@@ -28,17 +28,19 @@
                     <ul class="nav nav-tabs nav-tabs-bordered">
 
                         <li class="nav-item">
-                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Resume Profile</button>
                         </li>
 
                         <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Modifiaction Profile</button>
                         </li>
 
                         <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Modification mot de passe</button>
                         </li>
-
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#delete-profile">Suppresson compte</button>
+                        </li>
                     </ul>
                     <div class="tab-content pt-2">
 
@@ -130,6 +132,20 @@
 
                         </div>
 
+                        <div class="tab-pane fade pt-3 " id="delete-profile">
+                            <div class="row">
+                                <div class="col-12">
+                                    <p>Votre compte sera supprimé une fois que vous cliquerez sur le bouton 'Supprimer'. Cette action est irréversible, veuillez prendre le temps de considérer toutes les implications avant de confirmer la suppression de votre compte.</p>
+                                </div>
+                                <div class="col-12 d-flex justify-content-center align-items-center">
+                                    <form action="{{'/user/deleteUser/'. Auth::user()->id}}" method="post">
+                                        @method('delete')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger rounded-pill">Supprimer</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div><!-- End Bordered Tabs -->
 
                 </div>
