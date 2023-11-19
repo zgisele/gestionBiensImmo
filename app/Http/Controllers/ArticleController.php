@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Illuminate\Http\Request;
 
+
 class ArticleController extends Controller
 {
     /**
@@ -12,7 +13,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        return view('article.articles');
     }
 
     /**
@@ -27,9 +28,27 @@ class ArticleController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
+{
+
+    $request->validate([
+        'nom' => 'required',
+        'description' => 'required',
+        'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'type' => 'required',
+        'statut' => 'required',
+    ]);
+    
+    $imagePath = $request->file('image')->store('images/article', 'public');
+
+    $article = new Article();
+    $article->nom = $request->nom;
+    $article->description = $request->description;
+    $article->image = $imagePath;
+    $article->save();
+
+    return redirect()->route('article.articles')->with('success', 'Article ajouté avec succès.');
+}
+
 
     /**
      * Display the specified resource.
