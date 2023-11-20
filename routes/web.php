@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/articles', [ArticleController::class, 'index']);
+Route::post('/article/articles', [ArticleController::class, 'store']);
+Route::get('/article/listeArticle', [ArticleController::class, 'show']);
+Route::get('/article/{id}', [ArticleController::class, 'voirDetails']);
+Route::patch('/articleModif/{id}', [ArticleController::class, 'update']);//permet de renvoyer le formulaire avec patch
+Route::get('/modifier/{id}', [ArticleController::class, 'edit']);//permet de renvoyer la vue qui permet de modifier article
+Route::delete('/articleSupprimer/{id}', [ArticleController::class, 'destroy']);
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [UserController::class, 'dashboard']);

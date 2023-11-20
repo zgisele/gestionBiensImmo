@@ -8,6 +8,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
+<!-- Exemple de lien CDN pour Bootstrap (à ajouter dans votre fichier de mise en page) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Favicons -->
     <link href="{{asset('img/favicon.png')}}" rel="icon">
