@@ -12,8 +12,9 @@
                     <p class="card-text">Type : {{ $articles->type }}</p>
                     <p class="card-text">Statut : {{ $articles->statue }}</p>
                     <a href="{{$articles->id}}" class="btn btn-info">Voir Plus</a>
-                    <button type="submit" class="btn btn-warning">Modifier</button>
-                    <button type="button" class="btn btn-danger">Supprimer</button>
+     
+                    
+                   
 
                 </div>
             </div>

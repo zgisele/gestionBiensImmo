@@ -17,4 +17,5 @@ Route::get('/articles', [ArticleController::class, 'index']);
 Route::post('/article/articles', [ArticleController::class, 'store']);
 Route::get('/article/listeArticle', [ArticleController::class, 'show']);
 Route::get('/article/{id}', [ArticleController::class, 'voirDetails']);
-
+Route::patch('/articleModif/{id}', [ArticleController::class, 'update']);//permet de renvoyer le formulaire avec patch
+Route::get('/modifier/{id}', [ArticleController::class, 'edit']);//permet de renvoyer la vue qui permet de modifier article

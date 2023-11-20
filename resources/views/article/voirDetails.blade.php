@@ -12,6 +12,8 @@
 <p>Statut : {{ $article->statue }}</p>
 
 <img src="{{ asset('storage/'.$article->image) }}" alt="Image de l'article">
-        
+
+<a href="/modifier/{{$article->id}}" class="btn btn-warning">Modifier</a>
+<button type="submit" class="btn btn-danger">Supprimer</button>
 
 @endsection
