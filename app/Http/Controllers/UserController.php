@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -13,7 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('article.articles');
+        $article = Article::all(); // Récupérer tous les biens depuis le modèle article
+        return view('article.listeArticle', compact('article'));
     }
 
     public function dashboard()
@@ -27,7 +29,8 @@ class UserController extends Controller
     }
     public function articles()
     {
-        return view('admin.articles');
+        $article = Article::all(); // Récupérer tous les biens depuis le modèle article
+        return view('admin.articles', compact('article'));
     }
     public function commentaires()
     {

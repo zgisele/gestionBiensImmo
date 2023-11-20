@@ -16,12 +16,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/articles', [ArticleController::class, 'index']);
-Route::post('/article/articles', [ArticleController::class, 'store']);
 Route::get('/article/listeArticle', [ArticleController::class, 'show']);
 Route::get('/article/{id}', [ArticleController::class, 'voirDetails']);
-Route::patch('/articleModif/{id}', [ArticleController::class, 'update']);//permet de renvoyer le formulaire avec patch
-Route::get('/modifier/{id}', [ArticleController::class, 'edit']);//permet de renvoyer la vue qui permet de modifier article
+Route::patch('/articleModif/{id}', [ArticleController::class, 'update']); //permet de renvoyer le formulaire avec patch
+Route::get('/modifier/{id}', [ArticleController::class, 'edit']); //permet de renvoyer la vue qui permet de modifier article
 Route::delete('/articleSupprimer/{id}', [ArticleController::class, 'destroy']);
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
@@ -30,6 +30,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/user', [UserController::class, 'user']);
     Route::get('/articles', [UserController::class, 'articles']);
     Route::get('/commentaires', [UserController::class, 'commentaires']);
+    Route::post('/article/AjouterArticle', [ArticleController::class, 'store']);
     Route::get('/articles/ajouter', [UserController::class, 'ajouter']);
     Route::delete('/deleteUser/{id}', [UserController::class, 'deleteUser']);
 });

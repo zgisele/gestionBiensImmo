@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('article/articles');
+        $article = Article::all(); // Récupérer tous les biens depuis le modèle article
+        return view('article.listeArticle', compact('article'));
     }
 }

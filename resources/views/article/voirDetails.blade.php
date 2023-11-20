@@ -1,24 +1,20 @@
 @extends('layout.userLayout')
 @section('contenueUser')
-
-
-
-
-<h1>Détails de l'article</h1>
-
-<h3>{{ $article->nom }}</h3>
-<p>Description : {{ $article->description }}</p>
-<p>Type : {{ $article->type }}</p>
-<p>Statut : {{ $article->statue }}</p>
-
-<img src="{{ asset('storage/'.$article->image) }}" alt="Image de l'article">
-
-<a href="/modifier/{{$article->id}}" class="btn btn-warning">Modifier</a>
-<form method="POST" action="/articleSupprimer/{{ $article->id }}">
-    @csrf
-    @method('DELETE')
-
-    <button type="submit" class="btn btn-danger">Supprimer</button>
+<div class="col-md-12">
+    <div class="card mb-4 box-shadow">
+        <img class="card-img-top" src="{{asset('storage/'.$article->image)}}" height="600">
+        <div class="card-body">
+            <h5 class="card-title">Nom : {{ $article->nom }}</h5>
+            <p class="card-text">description : {{ $article->description }}</p>
+            <p class="card-text">Type : {{ $article->type }}</p>
+            <p class="card-text">Statut : {{ $article->statue }}</p>
+        </div>
+    </div>
+</div>
+<form action="" method="post" class="row g-3">
+    <div class="input-group">
+        <textarea class="form-control" aria-label="With textarea"></textarea>
+        <button type="submit" class="btn btn-primary" class="input-group-text">Commenter</button>
+    </div>
 </form>
-
 @endsection
