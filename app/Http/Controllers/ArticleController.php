@@ -21,7 +21,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -58,6 +58,14 @@ class ArticleController extends Controller
         $article = Article::all(); // Récupérer tous les biens depuis le modèle article
         return view('article.listeArticle', compact('article')); // Passer les Articles à la vue
     }
+
+public function voirDetails($id){
+    $article = Article::findOrFail($id);
+    return view('article.voirDetails', compact('article'));
+
+
+}
+
 
     /**
      * Show the form for editing the specified resource.

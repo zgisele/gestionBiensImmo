@@ -48,7 +48,8 @@
                 </div>
             </div>
             <div class="input-group">
-                <button type="submit" class="col-sm-2" class="btn btn-primary" name="ajouter">AjoutArticle</button>
+                <button type="submit" class="btn btn-success">Ajouter Article</button>
+                
 
             </div>
 
