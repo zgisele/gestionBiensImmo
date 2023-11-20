@@ -73,7 +73,7 @@ public function voirDetails($id){
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Article $article,$id)
+    public function edit($id)
     {
         $article= Article::findOrFail($id);
         return view('article.modifierArticle', compact('article'));
@@ -110,8 +110,11 @@ public function voirDetails($id){
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Article $article)
+    public function destroy( $id)
     {
-        //
+        $article= Article::findOrFail($id);
+        $article->delete();
+        return back()->with('success', 'Article supprimer avec succès');
+        
     }
 }
