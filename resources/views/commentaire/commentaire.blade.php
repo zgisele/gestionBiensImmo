@@ -41,7 +41,7 @@
         
                 <div class="d-flex justify-content-center align-items-center ">
                     <!-- <form action="/commentaire/modifier" method="post" class="btn btn-warning m-2 px-4 pr-4"> -->
-                        <a href="/commentaire/8/modifier" class="btn btn-warning m-2 px-4 pr-4" >
+                        <a href="/commentaire/.8/modifier" class="btn btn-warning m-2 px-4 pr-4" >
                             <i class="fas fa-exclamation-triangle"></i> Modifier
                         </a>
                     <!-- </form> -->
