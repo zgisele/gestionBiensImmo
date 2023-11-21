@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Commentaire;
 use Illuminate\Http\Request;
 
 
@@ -64,7 +65,9 @@ class ArticleController extends Controller
     public function voirDetails($id)
     {
         $article = Article::findOrFail($id);
-        return view('article.voirDetails', compact('article'));
+       $commentaire = Commentaire::where('article_id', '=' , $id)->get();
+// dd($commentaire);
+        return view('article.voirDetails', compact('article', 'commentaire'));
     }
 
 

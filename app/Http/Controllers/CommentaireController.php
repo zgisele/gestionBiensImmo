@@ -33,19 +33,21 @@ class CommentaireController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request,$articleId)
+    public function ajouter(Request $request, $id)
     {
+        // dd($request->all());
         //
         $request->validate([
-            'contenu' => 'required|string',
+            'contenu' => 'required',
         ]);
-
+        
          $commentaire = new Commentaire([
             'user_id' => Auth::user()->id, // L'ID de l'utilisateur actuel
-            'article_id' => $articleId,
+            'article_id' => $id,
             'contenu' => $request->input('contenu'),
         ]);
- 
+
+        $commentaire->save();
         // dd($commentaire);
         return back();
     }
@@ -88,7 +90,7 @@ class CommentaireController extends Controller
         //
         // Validation du formulaire de modification
         $request->validate([
-            'contenu' => 'required|string',
+            'contenu' => 'required',
         ]);
 
         // Mise à jour du contenu du commentaire
