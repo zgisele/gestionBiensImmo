@@ -11,9 +11,10 @@
         </div>
     </div>
 </div>
-<form action="" method="post" class="row g-3">
+<form action="{{'/commentaires/'. $article->id }}" method="post" class="row g-3">
+    @csrf
     <div class="input-group">
-        <textarea class="form-control" aria-label="With textarea"></textarea>
+        <textarea class="form-control" name="contenu" aria-label="With textarea"></textarea>
         <button type="submit" class="btn btn-primary" class="input-group-text">Commenter</button>
     </div>
 </form>

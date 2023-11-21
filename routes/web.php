@@ -41,6 +41,10 @@ Route::prefix('user')->middleware(['auth'])->group(function () {
     Route::patch('/updateProfile/{id}', [UserController::class, 'updateProfile']);
     Route::patch('/updatePasswd/{id}', [UserController::class, 'updatePasswd']);
     Route::delete('/deleteUser/{id}', [UserController::class, 'deleteUser']);
+    Route::post('/commentaires/{id}', [CommentaireController::class, 'store']);
+    Route::delete('/commentaires/modifier/{id}', [CommentaireController::class, 'destroy']);
+    Route::get('/commentaire/{id}/modifier', [CommentaireController::class, 'edit'])->name('commentaire.modifier');
+    Route::put('/commentaire/{id}', [CommentaireController::class, 'update'])->name('commentaire.update');
 });
 
 Route::get('/', [UserController::class, 'index']);
@@ -53,15 +57,11 @@ Auth::routes();
 
 Route::get('/commentaire', [CommentaireController::class, 'index']);
 
-Route::post('/commentaires/{id}', [CommentaireController::class, 'store']);
 Route::get('/commentaire', [CommentaireController::class, 'show']);
 
-Route::get('/commentaire/{id}/modifier', [CommentaireController::class, 'edit'])->name('commentaire.modifier');
-Route::put('/commentaire/{id}', [CommentaireController::class, 'update'])->name('commentaire.update');
 
 
 
-Route::delete('/commentaires/{id}', [CommentaireController::class, 'destroy']);
 
 
 // <!-- <div>

@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Article;
 use App\Models\Commentaire;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class CommentaireController extends Controller
@@ -39,12 +40,12 @@ class CommentaireController extends Controller
             'contenu' => 'required|string',
         ]);
 
-         $commentaire =Commentaire::create([
-            'user_id' => 1, // L'ID de l'utilisateur actuel
+         $commentaire = new Commentaire([
+            'user_id' => Auth::user()->id, // L'ID de l'utilisateur actuel
             'article_id' => $articleId,
             'contenu' => $request->input('contenu'),
         ]);
-
+ 
         // dd($commentaire);
         return back();
     }
